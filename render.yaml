@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: foodiary_DB
+    name: foodiary
     env: ruby
     region: singapore
     buildCommand: "./bin/render-build.sh"
