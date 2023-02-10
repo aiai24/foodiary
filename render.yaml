@@ -9,12 +9,13 @@ services:
     name: foodiary
     env: ruby
     region: singapore
+    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: <%= ENV['DATABASE_URL'] %>
         fromDatabase:
-          name: foodiary
+          name: foodiary_DB
           property: connectionString
       - key: <%= ENV['RAILS_MASTER_KEY'] %>
         sync: false
