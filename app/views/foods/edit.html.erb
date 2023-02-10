@@ -1,0 +1,13 @@
+<h1>編集</h1>
+<%= form_for @food do |f| %>
+    <p>商品名</p>
+
+    <p>食材名</p><%= f.text_field :name, :size => 140 %>
+    <p>数量</p><%= f.number_field :num, :size => 140 %>個
+    <p>賞味期限</p><%= f.date_field :limit_date, :size => 140 %>
+    <p>値段</p><%= f.number_field :price, :size => 140 %>円
+    <p>購入場所</p><%= f.text_field :where, :size => 140 %>
+
+  <%= f.submit "Postする" %>
+<% end %>
+<%= link_to "Post一覧に戻る", posts_path %>

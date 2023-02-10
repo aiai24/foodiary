@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ */
+  *{
+    margin: 0;
+    padding: 0;
+    }
+    
+    html{
+        height: 100%;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    body{
+        background-color: #FEFAE6;
+        display: flex;
+        flex-flow: column;
+        min-height: 100vh;
+    }
+
+    header {
+        top: 0;
+        width: 100vw;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        text-shadow: 1px 2px 3px  #464646;
+        font-family: "Times New Roman";
+    }
+    .foodiary {
+        margin: 0; padding: 0;
+        font-size: 20px;
+    }
+    .word {	
+        text-decoration: none;
+        color: white;
+        margin-left: 100px;
+    }
+    nav {
+        margin: 0 50px 0 auto;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        display: flex;
+    }
+    li {
+        margin: 0 0 0 15px;
+        font-size: 16px;
+    }
+
+    .gnavi li a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+    }
+    .gnavi li a::after {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #A4B9AB;
+        transform: scale(0, 1);
+        transform-origin: center top;
+        transition: transform .3s;
+    }
+    .gnavi li a:hover::after {
+        transform: scale(1, 1);
+    }
+
+    footer{
+        background-color:#464646;
+        width: 100vw;
+        height: 100px;
+        text-align: center;
+        margin-top: auto;
+        user-select: none;
+        font-family: "Times New Roman";
+    }
+    footer>.copy {
+        font-size: .625rem;
+        color: #96644B;
+        line-height: 1.475;
+    }
+    
+    #back{
+        cursor:pointer;
+    }
+
+    .inline-block_test {
+        display: inline-block;      /* インラインブロック要素にする */
+        background-color: transparent;   /* 背景色指定 */
+        padding:  20px;             /* 余白指定 */
+        color: #FAF5F0;
+        margin: 0 50px 0 50px;
+        position: relative;
+        top: 45px;
+        transform: translateY(-50%);
+    }
+    .inline-block_test>a{
+        color: white;
+    }

@@ -1,0 +1,11 @@
+<br>
+<%= button_to "食材更新", controller: :reads, action: :create %>
+<%= button_to "レシピ更新", controller: :reads, action: :create_recipe %>
+<h3>料理レシピ</h3>
+<% @recipe.each do |f| %>
+    <%= f.name %> <%= f.materials.split(",") %> <br>
+<% end %>
+<h3>食品一覧</h3>
+<% @foodstuffs.each do |f| %>
+    <%= f.name %> <br>
+<% end %>

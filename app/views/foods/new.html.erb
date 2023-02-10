@@ -1,0 +1,47 @@
+<div class="border">
+
+<div class="information">
+  <h1 class="food_post">Food Post</h1>
+  <%= form_for @food do |f| %>
+    
+      <div class="box">
+      食品名
+      <%= f.text_field :name, id:"foodname", required: true%>
+      </div>
+
+      <div class="box">
+      数量
+      <%= f.number_field :num,required: true%>個
+      </div>
+
+      <div class="box">
+      賞味期限
+      <%= f.date_field :limit_date,required: true%>
+      </div>
+
+      <div class="box">
+      価格
+      <%= f.number_field :price,required: true%>円
+      </div>
+      
+      <div class="box">
+      購入場所
+      <%= f.text_field :where,required: true%>
+      </div>
+
+    <%= f.submit "投稿する" %>
+  <% end %>
+</div>
+<input type="hidden" id="title" value="<%= @foods %>">
+<script>
+    $( function() {
+        const title = document.getElementById('title').value.split(",")
+        console.log(title)
+        var places = title;
+        $('#foodname').autocomplete({
+            autoFocus: true,
+            source: places,
+            minLength: 1
+        });
+    });
+</script>

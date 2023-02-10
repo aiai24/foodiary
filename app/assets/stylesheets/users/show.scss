@@ -1,0 +1,278 @@
+a {	
+  text-decoration: none;
+  color: #4b4b4b;
+}
+
+h1{
+  font-size:270%;
+  color: #464646;
+}
+
+h2{
+  font-size:270%;
+  color: #464646;
+}
+
+p{
+  font-size: 130%;
+}
+
+.profilecontainer{
+  display: flex;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-top: 0px;
+  .profile{
+    width: 40vw;
+    height: 50vh;
+    padding: 50px;
+    font-family: YuGothic,Yu Gothic,sans-serif;
+  }
+  .woman{
+    height: 500px;
+    width: 650px;
+  }
+}
+
+.postcontainer{
+  display: flex;
+  margin-left: 50px;
+  .post{
+    width: 50vw;
+    height: 25vh;
+    padding: 50px;
+    font-family: YuGothic,Yu Gothic,sans-serif;
+    .button012 a {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 240px;
+      padding: 10px 25px 10px 50px;
+      color: #464646;
+      transition: 0.3s ease-in-out;
+      font-weight: 600;
+      background: #CBD6C3;
+      border-radius: 50px;
+      z-index:0;
+      overflow: hidden;
+      margin-bottom: 5px;
+      font-size: 110%;
+  }
+  .button012 a:before {
+      font-family: "Font Awesome 6 Free";
+      line-height: 1;
+      position: absolute;
+      left: 5px;
+      background: #9DB190;
+      padding: 12px 11px;
+      border-radius: 60px;
+      z-index: 2;
+  }
+  .memo a:before {
+    content: "\f31c";
+  }
+  .ingredients a:before {
+    content: "\f578";
+  }
+  .button012 a:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      display: block;
+      background: #9DB190;
+      transition: .3s;
+      left:0;
+  }
+  .button012 a:hover:after {
+      width: 100%;
+      z-index: -1;
+  }
+  
+  }
+  .apple{
+    height: 400px;
+    width: 500px;
+  }
+}
+
+.foodcontainer{
+  display: flex;
+  margin-top: 60px;
+  .food{
+    width: 60vw;
+    padding: 60px;
+    font-family: YuGothic,Yu Gothic,sans-serif;
+    table{
+      border-collapse: separate;
+      border-spacing: 8px 5px;
+    }
+    td{
+      background-color:#CBD6C3;
+      font-family: YuGothic,Yu Gothic,sans-serif;
+      text-shadow: 1px 2px 3px  whitesmoke;
+      font-size: 110%;
+    }
+    thead{
+      font-weight: bold;
+      font-size: 22px;
+      color: #AB7066;
+      text-align: center;
+    }
+  }
+  .sandwich{
+    height: 100%;
+    width: 550px;
+  }
+}
+
+.teiancontainer{
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 120px;
+  margin-left: 50px;
+  .teian{
+    width: 50vw;
+    padding: 60px;
+    font-family: YuGothic,Yu Gothic,sans-serif;
+  }
+  .dish{
+    height: 100%;
+    width: 500px;
+  }
+  table{
+    border-collapse: separate;
+    border-spacing: 8px 5px;
+    color: #464646;
+    font-size: 130%;
+  }
+  td{
+    background-color: #CBD6C3;
+  }
+}
+
+
+.popup_wrap input {
+    display: none;
+  }
+  
+  .popup_overlay {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #cd903a3d;
+    transition: opacity 0.5s, transform 0s 0.5s;
+    transform: scale(0);
+  }
+  .popup_trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .popup_content {
+    position: relative;
+    align-self: center;
+    width: 75%;
+    max-width: 800px;
+    box-sizing: border-box;
+    background: #fff;
+    line-height: 1.4em;
+    transition: 0.5s;
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(94, 94, 94, 0.7);
+    padding: 20px;
+  }
+  .popup_content p{
+      padding:20px 20px 5px 20px;
+      text-align: center;
+  }
+  .close_btn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 30px;
+    cursor: pointer;
+    color:#9D001C;
+  }
+  .popup_wrap input:checked ~ .popup_overlay {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.5s;
+  }
+  .open_btn:hover{
+      background:#95B1AE;
+      color:#FFE9D0;
+      transition: .3s ease;
+      cursor:pointer;
+  }
+  .popup_wrap{
+    text-align: center;
+    table{
+      border-collapse: separate;
+      border-spacing: 8px 5px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+    }
+    td{
+      background-color:#CBD6C3;
+      font-family: YuGothic,Yu Gothic,sans-serif;
+      color: #464646;
+    }
+    thead{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  .open_btn .tabemono {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 240px;
+    padding: 10px 25px 10px 50px;
+    color: #464646;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #CBD6C3;
+    border-radius: 50px;
+    z-index:0;
+    overflow: hidden;
+    margin-bottom: 5px;
+    font-size: 110%;
+}
+.open_btn .tabemono:before {
+    font-family: "Font Awesome 6 Free";
+    content:"\f005";
+    line-height: 1;
+    position: absolute;
+    left: 5px;
+    background: #9DB190;
+    padding: 12px 11px;
+    border-radius: 60px;
+    z-index: 2;
+}
+.open_btn .tabemono:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    display: block;
+    background: #9DB190;
+    transition: .3s;
+    left:0;
+}
+.open_btn .tabemono:hover:after {
+    width: 100%;
+    z-index: -1;
+}

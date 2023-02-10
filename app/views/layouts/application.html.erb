@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food-iary</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+
+  <body>
+  <div class="main">
+
+  <header>
+  <h1 class="foodiary">
+    <%= link_to "Food-iary", hello_index_path, class:"word" %>
+  </h1>
+  <nav class="pc-nav">
+    <ul class="gnavi">
+      <li><%= link_to "HOME", hello_index_path %></li>
+      <li><%= link_to "LOG IN", new_user_session_path %></li>
+      <li><%= link_to "LOG OUT", destroy_user_session_path %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to "MY PAGE", user_path(current_user.id) %></li>
+      <% end %>
+    </ul>
+  </nav>
+  </header>
+
+    <%= yield %>
+  </div>
+    <footer>
+    <div class="inline-block_test">
+    <div id="back">TOP</div>
+    </div>
+    <div class="inline-block_test">
+    <%= link_to "LOG IN", new_user_session_path %>
+    </div>
+    <div class="inline-block_test">
+    <%= link_to "LOG OUT", destroy_user_session_path %>
+    </div>
+    <div class="inline-block_test">
+    <% if user_signed_in? %>
+    <%= link_to "MY PAGE", user_path(current_user.id) %>
+    <% end %>
+    </div>
+    <div class="inline-block_test copy">COPYRIGHT©AIRI KAI<br>ALL RIGHTS RESERVED</div>    
+    </footer>
+  </body>
+</html>
+<script>
+$(function() {
+  $('#back').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
+});
+</script>

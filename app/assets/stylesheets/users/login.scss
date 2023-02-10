@@ -1,0 +1,71 @@
+.sign_in{
+    width: 50vw;
+    margin: 80px auto auto auto;
+    text-align: center;
+    font-size: 20px;
+    color: #464646;
+    text-align: center;
+    font-family: "Book Antiqua"
+}
+
+.login{
+    font-size: 130%;
+    text-align: center;
+    padding: 30px;
+    color: #B8C7A0;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px  #464646;
+    border-bottom: dashed 1px #516346;  
+}
+
+.afield{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_btn{
+    background: none;
+    border: none;
+}
+
+.button019 .login_btn {
+    background: #C5C2AE;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 280px;
+    padding: 10px 25px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    font-size: 100%;
+}
+.button019 .login_btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    right: 2rem;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s;
+    width: 6px;
+    height: 6px;
+    border-top: solid 2px currentColor;
+    border-right: solid 2px currentColor;
+    transform: translateY(-50%) rotate(45deg);
+}
+.button019 .login_btn:hover {
+    background: #667451;
+    color: #FFF;
+}
+.button019 .login_btn:hover:after {
+    right: 1.4rem;
+}

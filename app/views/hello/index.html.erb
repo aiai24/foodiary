@@ -1,0 +1,96 @@
+<header id="header">
+    <h1 class="title">Food-iary</h1>
+    <div class="scrolldown4"><span>Scroll</span></div>
+</header>
+<ul class="sample">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+<div id="container">
+    <div class="top-container">
+        <div class="col-2">   
+            <div>
+                <img src="../assets/g0940.png" class="ttl" alt="with Picnic">
+            </div>
+            <div>
+            <h3>仕事や勉強、家事で毎日忙しいあなたに。<br>
+                Food-iaryで食生活の記録を。<br>
+                家にある食材を使って、満足感たっぷりな料理を。<br>
+                健康で豊かな生活を送れますように。
+            </h3>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <ul class="slideshow">
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+        </ul>
+        <ul class="slideshow">
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+        </ul>
+        <ul class="slideshow">
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+            <li class="content"></li>
+        </ul>
+    </div>
+        <p></p>    
+</div> 
+
+<div id="color_box">
+    <div id="colorcontainer">
+        <div id="number">01</div>
+        <div id="title">Title</div>
+        <div id="body">内容書くところ</div>
+        <div id="image"></div>
+    </div>
+</div>
+
+<script>
+    const color_box = document.querySelector('#color_box')
+    const container = document.querySelector('#colorcontainer')
+    const title = document.querySelector('#title')
+    const number = document.querySelector('#number')
+    const body = document.querySelector('#body')
+    const image = document.querySelector('#image')
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 1780) {
+            container.style.position = 'fixed'
+        }else{
+            container.style.position = 'relative'
+        }
+        if (window.scrollY < 3855) {
+            title.textContent = "まずは食材を登録してみよう"
+            number.textContent = "O1"
+            body.innerText = "食材名、個数、賞味期限を入力すると一覧になって表示されます。"
+            image.className = "image1"
+        }else if (window.scrollY < 5930){
+            title.textContent = "マイページで賞味期限を確認しよう"
+            number.textContent = "O2"
+            body.innerText = "マイページにログインすると、賞味期限間近の食材を通知してくれます。\n食品ロスの削減につなげましょう。"
+            image.className = "image2"
+        }else if (window.scrollY < 8005){
+            title.textContent = "自宅にある食材からつくれるレシピを提案"
+            number.textContent = "O3"
+            body.innerText= "毎日仕事や勉強、家事で忙しいあなたに。\n買い物に行かず、家にある食材でつくれるレシピを提案します。"
+            image.className = "image3"
+        }else{
+            title.textContent = "「食」を管理してハッピーに"
+            number.textContent = "O4"
+            body.innerText = "健康的な食事を楽しみましょう。\nFood-iaryがあなたの毎日を彩りますように。"
+            image.className = "image4"
+        }})
+</script>
+</html>

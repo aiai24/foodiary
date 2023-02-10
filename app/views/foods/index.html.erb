@@ -1,0 +1,45 @@
+<h3>食材を検索</h3>
+    <%= form_tag({controller:"foods",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+    <% end %>
+
+<h2>家にある食材</h2>
+<% count_t = 0 %>
+<% @foods.each do |t| %>
+    <% count_t += 1 %>
+    <% if @array[count_t - 1] == true %>
+        <% @array[count_t - 1] = false %>
+        <div>
+            <%= t.name %>
+            <%= t.num %>
+            <%= t.limit_date %>
+            <%= (t.limit_date - @today).to_i %>日
+            <%= t.price %>
+            <%= t.where %>
+            <%= link_to "編集", edit_food_path(t.id) %>
+            <%= link_to "削除", food_path(t.id), method: :delete %>
+        </div>
+        <% count_u = 0 %>
+        <% @foods.each do |u| %>
+            <% count_u += 1 %>
+            <% if t.name == u.name && t.id != u.id %>
+                <% @array[count_u - 1] = false %>
+                <div>
+                    <%= u.name %>
+                    <%= u.num %>
+                    <%= u.limit_date %>
+                    <%= (u.limit_date - @today).to_i %>日
+                    <%= u.price %>
+                    <%= u.where %>
+                    <%= link_to "編集", edit_food_path(u.id) %>
+                    <%= link_to "削除", food_path(u.id), method: :delete %>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+<%= link_to "投稿一覧に戻る", posts_path %>
+

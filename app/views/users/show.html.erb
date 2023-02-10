@@ -1,0 +1,139 @@
+
+<div class="profilecontainer">
+  <div class="profile">
+    <h1>プロフィール</h1>
+    <p>名前 : <%= @user.name %></p>
+    <p>メールアドレス : <%= @user.email %></p>
+    <p>プロフィール : <%= @user.profile %></p>
+    <% if current_user.id == @user.id %>
+      <%= link_to "編集する", edit_user_registration_path %>
+    <% end %>
+    <label for="trigger" class="open_btn"><div class="tabemono">賞味期限が近い食材</div></label>
+    <div class="popup_wrap">
+      <input id="trigger" type="checkbox" checked=true>
+      <div class="popup_overlay">
+        <label for="trigger" class="popup_trigger"></label>
+        <div class="popup_content">
+          <label for="trigger" class="close_btn">×</label>
+          <h2>賞味期限間近！</h2>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <td>食材名</td>
+                  <td>個数</td>
+                  <td>賞味期限</td>
+                  <td>期限まで</td>
+                </tr>
+              </thead>
+              <tbody>
+                <% @foods.each do |t| %>
+                  <%if (t.limit_date - @today).to_i <2 %>
+                    <tr>
+                      <td><%= t.name %></td>
+                      <td><%= t.num %>個</td>
+                      <td><%= t.limit_date.strftime("%Y年%m月%d日")%></td>
+                      <td><%= (t.limit_date - @today).to_i %>日</td>
+                      <td><%= link_to "編集", edit_food_path(t.id) %></td>
+                      <td><%= link_to "削除", food_path(t.id), method: :delete %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= image_tag 'zyosei.jpg' ,class:'woman' %>
+</div>
+
+<div class="postcontainer">
+  <div class="post">
+    <h2>投稿</h2>
+    <% @user.posts.each do |t| %>
+      <%= t.user.name %>
+      <%= t.body %>
+    <% end %>
+    <div class="button012 memo">
+      <%= link_to "メモ", new_post_path %>
+    </div>
+    <div class="button012 ingredients">
+      <%= link_to "食材登録", new_food_path %>
+    </div>
+  </div>
+  <%= image_tag 'cake.jpg' ,class:'apple' %>
+</div>
+
+<div class="foodcontainer">
+  <%= image_tag 'yasai.jpg' ,class:'sandwich' %>
+  <div class="food">
+      <h2>家にある食材</h2>
+      <% count_t = 0 %>
+      <table>
+        <thead>
+          <tr>
+              <td>食材名</td>
+              <td>個数</td>
+              <td>賞味期限</td>
+              <td>期限まで</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |t| %>
+              <% count_t += 1 %>
+              <% if @array[count_t - 1] == true %>
+                  <% @array[count_t - 1] = false %>
+                  <tr>
+                      <td><%= t.name %></td>
+                      <td><%= t.num %>個</td>
+                      <td><%= t.limit_date.strftime("%Y年%m月%d日")%></td>
+                      <td><%= (t.limit_date - @today).to_i %>日</td>
+                      <td><%= link_to "編集", edit_food_path(t.id) %></td>
+                      <td><%= link_to "削除", food_path(t.id), method: :delete %></td>
+                  </tr>
+                  <% count_u = 0 %>
+                  <% @foods.each do |u| %>
+                      <% count_u += 1 %>
+                      <% if t.name == u.name && t.id != u.id %>
+                          <% @array[count_u - 1] = false %>
+                          <tr>
+                              <td><%= u.name %></td>
+                              <td><%= u.num %>個</td>
+                              <td><%= u.limit_date.strftime("%Y年%m月%d日")%></td>
+                              <td><%= (u.limit_date - @today).to_i %>日</td>
+                              <td><%= link_to "編集", edit_food_path(u.id) %></td>
+                              <td><%= link_to "削除", food_path(u.id), method: :delete %></td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </tbody>
+      </table>
+  </div>  
+</div>
+
+<div class="teiancontainer">
+  <div class="teian">
+    <h2>料理提案</h2>
+    <% if @teian.length != 0 %>
+      <table>
+        <tbody>
+          <% @teian.sort_by { |_, v| v }.reverse.to_h.each do |k, v| %>
+            <tr>
+              <td><%= k %></td>
+              <td><%= v %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+        <p>提案する料理がありません🥺</p>
+    <% end %>
+  </div>
+  <%= image_tag 'ryouri.jpg' ,class:'dish' %>
+</div>
+
+

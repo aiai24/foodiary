@@ -1,0 +1,24 @@
+Enjoy Life!
+<% if user_signed_in? %>
+<%= link_to "マイページへ", user_path(current_user.id) %>　
+<% end %>
+
+<h3>食材を検索</h3>
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索する'  %>
+  <% end %>
+
+<%= link_to "memo", new_post_path %>
+<%= link_to "新規食材投稿ページへ", new_food_path %>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<div class="posts-container">
+  <% @posts.each do |t| %>
+    <div class="post">
+        <%= t.user.email %>
+        <%= t.body %>
+        <%= t.created_at %>
+        <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
+    </div>
+  <% end %>
+</div>
